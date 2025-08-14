@@ -1,0 +1,54 @@
+services:
+  api1:
+    image: diogoloff/api-fpc-rinha2025:latest
+    depends_on:
+      - persistencia
+    hostname: api1
+    ports:
+      - "9999:8080"
+    environment:
+      - DEFAULT_URL=http://payment-processor-default:8080
+      - FALLBACK_URL=http://payment-processor-fallback:8080
+      - CONSOLIDA_URL=http://persistencia:9090
+      - CON_TIME_OUT=5000
+      - READ_TIME_OUT=2500
+      - NUM_WORKERS=16
+      - NUM_WORKERS_SOCKET=8
+      - NUM_TENTATIVAS_DEFAULT=5
+      - TEMPO_FILA=10
+      - DEBUG=N
+#    volumes:
+#      - ./Logs/:/opt/rinha/Logs/  #somente se DEBUG=S
+    networks:
+      - backend-rinha
+      - payment-processor
+    #deploy:
+    #  resources:
+    #    limits:
+    #      cpus: "0.50"
+    #      memory: "100MB"
+
+  persistencia: 
+    image: diogoloff/persistencia-fpc-rinha2025:latest
+    hostname: persistencia
+    ports:
+      - "9090:9090"
+    environment:
+      - NUM_WORKERS_SOCKET=32
+      - DEBUG=N
+#    volumes:
+#      - ./LogsP/:/opt/rinha/Logs/ #somente se DEBUG=S
+    networks:
+      - backend-rinha
+    #deploy:
+    #  resources:
+    #    limits:
+    #      cpus: "0.35"
+    #      memory: "100MB"
+
+networks:
+  backend-rinha:
+    name: backend-rinha
+    driver: bridge
+  payment-processor:
+    external: true
