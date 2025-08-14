@@ -1,0 +1,10 @@
+*.sh text eol=lf
+*.init text eol=lf
+*.shutdown text eol=lf
+Dockerfile text eol=lf
+constantes text eol=lf
+imagem/bin/* text eol=lf
+imagem/syslog-ng/* text eol=lf
+imagem/logosystem/logosystem text eol=lf
+logosystem/bin/logosystem text eol=lf
+

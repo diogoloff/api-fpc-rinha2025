@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Release">
+      <Item Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="Rinha"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="fontes"/>
+            <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <DebugInfoType Value="dsDwarf2"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <CustomOptions Value="-dSERVICO"/>
+            <OtherDefines Count="1">
+              <Define0 Value="SERVICO"/>
+            </OtherDefines>
+          </Other>
+        </CompilerOptions>
+      </Item>
+    </BuildModes>
+    <Units>
+      <Unit>
+        <Filename Value="Rinha.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="69" Y="11"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/unlinux.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unLinux"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="31" Y="17"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/unserver.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unServer"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="18"/>
+        <CursorPos X="95" Y="29"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/ungenerica.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unGenerica"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="27"/>
+        <CursorPos X="25" Y="42"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/unapi.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unAPI"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="229"/>
+        <CursorPos X="99" Y="243"/>
+        <UsageCount Value="72"/>
+        <Bookmarks Count="1">
+          <Item0 X="79" Y="243" ID="1"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/unrequisicaopendente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unRequisicaoPendente"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="100"/>
+        <CursorPos X="12" Y="124"/>
+        <UsageCount Value="57"/>
+        <Bookmarks Count="1">
+          <Item0 X="5" Y="84" ID="2"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/packages/fcl-base/src/custapp.pp"/>
+        <UnitName Value="CustApp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="50"/>
+        <CursorPos X="21" Y="65"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.0/ide/lazarus.pp"/>
+        <UnitName Value="Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="133"/>
+        <CursorPos X="15" Y="149"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.server.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="636"/>
+        <CursorPos X="52" Y="652"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.http.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="680"/>
+        <CursorPos X="60" Y="700"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.http.server.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="493"/>
+        <CursorPos X="14" Y="510"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.core.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="1445"/>
+        <CursorPos X="34" Y="1462"/>
+        <UsageCount Value="14"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.server.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="462"/>
+        <CursorPos X="50" Y="475"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.text.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2202"/>
+        <CursorPos X="5" Y="2217"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/orm/mormot.orm.core.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4880"/>
+        <CursorPos X="3" Y="4851"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.memserver.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="160"/>
+        <CursorPos X="17" Y="176"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="214"/>
+        <CursorPos X="23" Y="206"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.json.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4077"/>
+        <CursorPos X="7" Y="4103"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.variants.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2675"/>
+        <CursorPos X="18" Y="2691"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.threads.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="14" Y="108"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1743"/>
+        <CursorPos X="22" Y="1756"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.data.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="621"/>
+        <CursorPos X="17" Y="584"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.base.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="158"/>
+        <CursorPos X="3" Y="184"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fontes/unhealthhelper.pas"/>
+        <UnitName Value="unHealthHelper"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="157"/>
+        <CursorPos X="38" Y="157"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.client.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="667"/>
+        <CursorPos X="17" Y="667"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/streams.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="849"/>
+        <CursorPos X="71" Y="850"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.sock.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="109"/>
+        <CursorPos X="3" Y="123"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.datetime.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3874"/>
+        <CursorPos X="59" Y="3896"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/packages/rtl-objpas/src/inc/dateutil.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="435"/>
+        <CursorPos X="23" Y="450"/>
+        <UsageCount Value="9"/>
+      </Unit>
+    </Units>
+    <OtherDefines Count="2">
+      <Define0 Value="SERVICO"/>
+      <Define1 Value="DEBUG"/>
+    </OtherDefines>
+    <General>
+      <ActiveWindowIndexAtStart Value="-1"/>
+    </General>
+    <JumpHistory HistoryIndex="-1"/>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

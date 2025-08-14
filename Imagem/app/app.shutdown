@@ -1,0 +1,30 @@
+#!/bin/bash
+
+APPSERVICE=/opt/rinha/Rinha
+
+app_service_wait() {
+    if [ "$1" -ne 0 ]; then
+        return 1
+    fi
+
+    RET=1
+    for i in $(seq 1 120); do
+		if ! pidof $APPSERVICE > /dev/null; then
+			echo "Rinha Server Stoped"
+            RET=0
+            break
+        fi
+        sleep 1s
+    done
+    return $RET
+}
+
+if pidof $APPSERVICE > /dev/null; then
+	echo "Stopping Rinha Server..."
+    kill -USR1 $(pidof $APPSERVICE) &
+	app_service_wait $?
+fi
+
+if pidof $APPSERVICE > /dev/null; then
+    echo "*** Rinha Server Locked ***"
+fi
