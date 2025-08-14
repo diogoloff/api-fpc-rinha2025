@@ -6,7 +6,7 @@ Projeto desenvolvido para participar da [Rinha de Backend 2025](https://github.c
 
 - **Linguagem:** Free Pascal  
 - **Framework:** mORMot2  
-- **Persistencia:** Propria com controle em memória
+- **Persistencia:** Própria com controle em memória
 
 ## 📄 Como Rodar
 
