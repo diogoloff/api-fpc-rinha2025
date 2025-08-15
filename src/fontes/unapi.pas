@@ -33,6 +33,7 @@ type
         FModel: TOrmModel;
         FRest: TRestServerFullMemory;
         FServerHttp: TRestHttpServer;
+        FClientQuery: THttpClientSocket;
     public
         constructor Create;
         destructor Destroy; override;
@@ -44,10 +45,13 @@ type
 { TWorkerRequisicao }
 
     TWorkerRequisicao = class(TSynThread)
+    private
+        FClientAdd: THttpClientSocket;
     protected
         procedure Execute; override;
     public
         constructor Create; reintroduce;
+        destructor Destroy; override;
     end;
 
 var
@@ -95,11 +99,11 @@ begin
     FilaRequisicoes.Push(lRequisicao);
 end;
 
-procedure Processar(const AReq : TRequisicaoTemp);
+procedure Processar(const AReq : TRequisicaoTemp; AClientAdd: THttpClientSocket);
 var
     lRequisicao: TRequisicaoPendente;
 begin
-    lRequisicao:= TRequisicaoPendente.Create(AReq.CorrelationId, AReq.Amount, AReq.Attempt);
+    lRequisicao:= TRequisicaoPendente.Create(AReq.CorrelationId, AReq.Amount, AReq.Attempt, AClientAdd);
     try
         if (lRequisicao.Processar) then
 	          Exit;
@@ -131,7 +135,7 @@ begin
             begin
                 try
                     try
-                        Processar(lRequisicao);
+                        Processar(lRequisicao, FClientAdd);
                     finally
                     end;
                 except
@@ -149,7 +153,17 @@ end;
 
 constructor TWorkerRequisicao.Create;
 begin
-  inherited Create(False);
+    inherited Create(False);
+
+    FClientAdd:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida);
+    FClientAdd.SendTimeout:= FReadTimeOut;
+    FClientAdd.ReceiveTimeout:= FReadTimeOut;
+end;
+
+destructor TWorkerRequisicao.Destroy;
+begin
+    FClientAdd.Free;
+  inherited Destroy;
 end;
 
 { TApiServer }
@@ -177,7 +191,7 @@ var
     lsFrom: RawUtf8;
     lsTo: RawUtf8;
     lsQuery: RawUtf8;
-    lClient: THttpClientSocket;
+    //lClient: THttpClientSocket;
     liStatusCode: Integer;
     lRetorno: TDocVariantData;
 begin
@@ -207,29 +221,39 @@ begin
 
     GerarLog(lsQuery);
 
-    lClient:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida, nlTcp, FConTimeOut);
+    //lClient:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida, nlTcp, FConTimeOut);
     try
-        lClient.SendTimeout := FReadTimeOut;
-        lClient.ReceiveTimeout := FReadTimeOut;
+        //lClient.SendTimeout := FReadTimeOut;
+        //lClient.ReceiveTimeout := FReadTimeOut;
 
-        if (lClient.SockConnected) then
-        begin
-            liStatusCode:= lClient.Get('/query' + lsQuery);
-            lRetorno.InitJson(lClient.Content, JSON_OPTIONS_FAST);
+        //if (FClientPer.SockConnected) then
+        //begin
+        //    FHttpLock.Enter;
+        //    try
+                liStatusCode:= FClientQuery.Get('/query' + lsQuery);
+        //    finally
+        //        FHttpLock.Leave;
+        //    end;
+
+            lRetorno.InitJson(FClientQuery.Content, JSON_OPTIONS_FAST);
 
             if (liStatusCode= 200) then
                 Context.ReturnsJson(Variant(lRetorno), HTTP_SUCCESS)
             else
                 Context.ReturnsJson(Variant(lRetorno), HTTP_SERVERERROR);
-        end;
+        //end;
     finally
-        lClient.Free;
+        //lClient.Free;
     end;
 end;
 
 constructor TApiServer.Create;
 begin
     inherited Create;
+
+    FClientQuery:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida);
+    FClientQuery.SendTimeout := FReadTimeOut;
+    FClientQuery.ReceiveTimeout := FReadTimeOut;
 
     IniciarHealthCk(FUrl);
     InicializarFilaEPool;
@@ -252,6 +276,7 @@ begin
     FRest.Free;
     FModel.Free;
     FilaRequisicoes.Free;
+    FClientQuery.Free;
     inherited Destroy;
 end;
 

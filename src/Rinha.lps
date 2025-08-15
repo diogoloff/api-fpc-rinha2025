@@ -42,7 +42,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="69" Y="11"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="78"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/unlinux.pas"/>
@@ -51,50 +51,51 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="31" Y="17"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="78"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/unserver.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unServer"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="18"/>
-        <CursorPos X="95" Y="29"/>
-        <UsageCount Value="72"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="10" Y="11"/>
+        <UsageCount Value="78"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/ungenerica.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unGenerica"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="27"/>
-        <CursorPos X="25" Y="42"/>
-        <UsageCount Value="72"/>
+        <CursorPos X="21" Y="11"/>
+        <UsageCount Value="78"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/unapi.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unAPI"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="229"/>
-        <CursorPos X="99" Y="243"/>
-        <UsageCount Value="72"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="125"/>
+        <CursorPos X="49" Y="140"/>
+        <UsageCount Value="78"/>
         <Bookmarks Count="1">
-          <Item0 X="79" Y="243" ID="1"/>
+          <Item0 X="79" Y="267" ID="1"/>
         </Bookmarks>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/unrequisicaopendente.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unRequisicaoPendente"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="100"/>
-        <CursorPos X="12" Y="124"/>
-        <UsageCount Value="57"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="116"/>
+        <CursorPos X="54" Y="129"/>
+        <UsageCount Value="63"/>
         <Bookmarks Count="1">
-          <Item0 X="5" Y="84" ID="2"/>
+          <Item0 X="5" Y="86" ID="2"/>
         </Bookmarks>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/packages/fcl-base/src/custapp.pp"/>
@@ -102,7 +103,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="21" Y="65"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/lib/lazarus/2.2.0/ide/lazarus.pp"/>
@@ -111,28 +112,28 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="133"/>
         <CursorPos X="15" Y="149"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.server.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="636"/>
         <CursorPos X="52" Y="652"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.http.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="680"/>
         <CursorPos X="60" Y="700"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.http.server.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="493"/>
         <CursorPos X="14" Y="510"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.core.pas"/>
@@ -140,84 +141,84 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="1445"/>
         <CursorPos X="34" Y="1462"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="13"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.server.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="462"/>
         <CursorPos X="50" Y="475"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.text.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2202"/>
         <CursorPos X="5" Y="2217"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/orm/mormot.orm.core.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4880"/>
         <CursorPos X="3" Y="4851"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/rest/mormot.rest.memserver.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="160"/>
         <CursorPos X="17" Y="176"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpash.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="214"/>
+        <TopLine Value="193"/>
         <CursorPos X="23" Y="206"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.json.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4077"/>
         <CursorPos X="7" Y="4103"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.variants.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2675"/>
         <CursorPos X="18" Y="2691"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.threads.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="14" Y="108"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1743"/>
         <CursorPos X="22" Y="1756"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.data.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="621"/>
         <CursorPos X="17" Y="584"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.base.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="158"/>
         <CursorPos X="3" Y="184"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="fontes/unhealthhelper.pas"/>
@@ -225,52 +226,142 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="157"/>
         <CursorPos X="38" Y="157"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="19"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.client.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="667"/>
         <CursorPos X="17" Y="667"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/streams.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="849"/>
         <CursorPos X="71" Y="850"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/net/mormot.net.sock.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="109"/>
         <CursorPos X="3" Y="123"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../desenvolvimento/ComponentesFPC/mormot2/src/core/mormot.core.datetime.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3874"/>
         <CursorPos X="59" Y="3896"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/packages/rtl-objpas/src/inc/dateutil.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="435"/>
         <CursorPos X="23" Y="450"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
     </Units>
     <OtherDefines Count="2">
       <Define0 Value="SERVICO"/>
       <Define1 Value="DEBUG"/>
     </OtherDefines>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory HistoryIndex="22">
+      <Position>
+        <Filename Value="fontes/unserver.pas"/>
+        <Caret Line="41" Column="43" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="216" Column="71" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/ungenerica.pas"/>
+        <Caret Line="12" Column="23"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unrequisicaopendente.pas"/>
+        <Caret Line="139" Column="15" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/ungenerica.pas"/>
+        <Caret Line="48" Column="37" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unrequisicaopendente.pas"/>
+        <Caret Line="131" Column="23" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="222" Column="43" TopLine="204"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unrequisicaopendente.pas"/>
+        <Caret Line="128" Column="21" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="71" Column="24" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="50" Column="27" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="63" Column="39" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="73" Column="47" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="107" Column="45" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="48" Column="19" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="66" Column="40" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="61" Column="31" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="36" Column="42" TopLine="120"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="107" Column="35" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="106" Column="42" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="54" Column="38" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="279" Column="23" TopLine="256"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unapi.pas"/>
+        <Caret Line="140" Column="43" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="fontes/unrequisicaopendente.pas"/>
+        <Caret Line="129" Column="54" TopLine="116"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

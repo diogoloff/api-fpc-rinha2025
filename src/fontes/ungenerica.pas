@@ -44,6 +44,7 @@ var
     FNumTentativasDefault: Integer;
     FLastTimestamp: Int64;
     FTimestampLock: TCriticalSection;
+    FHttpLock: TCriticalSection;
 
 const
     cTransacaoPath = '/opt/rinha/transacoes/';
@@ -233,10 +234,12 @@ initialization
     FLogLock := TCriticalSection.Create;
     FTimestampLock := TCriticalSection.Create;
     FLastTimestamp := DateTimeToUnixMS(Now);
+    FHttpLock := TCriticalSection.Create;
 
 finalization
     FLogLock.Free;
     FTimestampLock.Free;
+    FHttpLock.Free;
 
 end.
 
