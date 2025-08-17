@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}
   Classes, SysUtils, CustApp,
-  unLinux, unServer, unGenerica, unAPI, unRequisicaoPendente
+  unLinux, unServer, unGenerica, unAPI, unRequisicaoPendente, unPersistencia
   { you can add units after this };
 
 type
@@ -46,7 +46,7 @@ begin
   try
      if (FindCmdLineSwitch('DAEMON', ['-'], true)) then
      begin
-       TPosixDaemon.Setup(nil);
+       TPosixDaemon.Setup(@TratarSinais);
 
        RunServer;
 

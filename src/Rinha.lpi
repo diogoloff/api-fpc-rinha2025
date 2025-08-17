@@ -100,6 +100,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unRequisicaoPendente"/>
       </Unit>
+      <Unit>
+        <Filename Value="fontes/unpersistencia.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unPersistencia"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

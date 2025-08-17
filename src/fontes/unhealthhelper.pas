@@ -180,7 +180,7 @@ begin
     FEventoVerificar.SetEvent;
 
     FThreadMonitorar.WaitFor;
-    FThreadMonitorar.Free;
+    //FThreadMonitorar.Free;
 end;
 
 procedure TServiceHealthMonitor.ThreadMonitorar;

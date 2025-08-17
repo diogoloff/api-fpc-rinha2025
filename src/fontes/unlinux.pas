@@ -33,9 +33,20 @@ type
     class procedure Run(const AInterval: Integer; PProc: TProc);
   end;
 
+procedure TratarSinais(ASigNum: TPosixSignal);
 procedure sd_notify(unused: cint; state: PChar); cdecl; external 'libsystemd.so';
 
 implementation
+
+procedure TratarSinais(ASigNum: TPosixSignal);
+begin
+   case ASigNum of
+    Termination: Writeln('Entrou no term');
+    Reload: Writeln('Entrou no reload');
+    User1: Writeln('Entrou no usr1');
+    User2: Writeln('Entrou no usr2');
+  end;
+end;
 
 procedure HandleSignals(ASigNum: cint); cdecl;
 begin
@@ -46,7 +57,10 @@ begin
       TPosixDaemon.RemovePIDFile('');
       TPosixDaemon.FRunningEvent.SetEvent;
     end;
-    SIGHUP: TPosixDaemon.FSignalProc(TPosixSignal.Reload);
+    SIGHUP:
+    begin
+      TPosixDaemon.FSignalProc(TPosixSignal.Reload);
+    end;
     SIGUSR1:
     begin
       TPosixDaemon.FSignalProc(TPosixSignal.User1);

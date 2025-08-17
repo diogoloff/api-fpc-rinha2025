@@ -10,6 +10,7 @@ uses
     unGenerica,
     unRequisicaoPendente,
     unHealthHelper,
+    unPersistencia,
     mormot.core.base,
     mormot.core.variants,
     mormot.core.os,
@@ -33,7 +34,6 @@ type
         FModel: TOrmModel;
         FRest: TRestServerFullMemory;
         FServerHttp: TRestHttpServer;
-        FClientQuery: THttpClientSocket;
     public
         constructor Create;
         destructor Destroy; override;
@@ -46,7 +46,6 @@ type
 
     TWorkerRequisicao = class(TSynThread)
     private
-        FClientAdd: THttpClientSocket;
     protected
         procedure Execute; override;
     public
@@ -99,11 +98,11 @@ begin
     FilaRequisicoes.Push(lRequisicao);
 end;
 
-procedure Processar(const AReq : TRequisicaoTemp; AClientAdd: THttpClientSocket);
+procedure Processar(const AReq : TRequisicaoTemp);
 var
     lRequisicao: TRequisicaoPendente;
 begin
-    lRequisicao:= TRequisicaoPendente.Create(AReq.CorrelationId, AReq.Amount, AReq.Attempt, AClientAdd);
+    lRequisicao:= TRequisicaoPendente.Create(AReq.CorrelationId, AReq.Amount, AReq.Attempt);
     try
         if (lRequisicao.Processar) then
 	          Exit;
@@ -135,7 +134,7 @@ begin
             begin
                 try
                     try
-                        Processar(lRequisicao, FClientAdd);
+                        Processar(lRequisicao);
                     finally
                     end;
                 except
@@ -154,15 +153,10 @@ end;
 constructor TWorkerRequisicao.Create;
 begin
     inherited Create(False);
-
-    FClientAdd:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida);
-    FClientAdd.SendTimeout:= FReadTimeOut;
-    FClientAdd.ReceiveTimeout:= FReadTimeOut;
 end;
 
 destructor TWorkerRequisicao.Destroy;
 begin
-    FClientAdd.Free;
   inherited Destroy;
 end;
 
@@ -190,10 +184,6 @@ procedure TApiServer.HandlePaymentsSummary(Context: TRestServerUriContext);
 var
     lsFrom: RawUtf8;
     lsTo: RawUtf8;
-    lsQuery: RawUtf8;
-    //lClient: THttpClientSocket;
-    liStatusCode: Integer;
-    lRetorno: TDocVariantData;
 begin
     if (Context.InputExists['from']) then
         lsFrom:= Context.InputUtf8['from']
@@ -203,57 +193,21 @@ begin
     if (Context.InputExists['to']) then
         lsTo:= Context.InputUtf8['to']
     else
-        lsFrom:= '';
+        lsTo:= '';
 
-    lsQuery:= '';
-    if Trim(lsFrom) <> '' then
-        lsQuery:= 'from=' + lsFrom;
-
-    if Trim(lsTo) <> '' then
-    begin
-        if lsQuery <> '' then
-            lsQuery := lsQuery + '&';
-        lsQuery:= lsQuery + 'to=' + lsTo;
-    end;
-
-    if lsQuery <> '' then
-        lsQuery:= '?' + lsQuery;
-
-    GerarLog(lsQuery);
-
-    //lClient:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida, nlTcp, FConTimeOut);
-    try
-        //lClient.SendTimeout := FReadTimeOut;
-        //lClient.ReceiveTimeout := FReadTimeOut;
-
-        //if (FClientPer.SockConnected) then
-        //begin
-        //    FHttpLock.Enter;
-        //    try
-                liStatusCode:= FClientQuery.Get('/query' + lsQuery);
-        //    finally
-        //        FHttpLock.Leave;
-        //    end;
-
-            lRetorno.InitJson(FClientQuery.Content, JSON_OPTIONS_FAST);
-
-            if (liStatusCode= 200) then
-                Context.ReturnsJson(Variant(lRetorno), HTTP_SUCCESS)
-            else
-                Context.ReturnsJson(Variant(lRetorno), HTTP_SERVERERROR);
-        //end;
-    finally
-        //lClient.Free;
-    end;
+    Context.ReturnsJson(Variant(Persistencia.ConsultarDados(lsFrom, lsTo)), HTTP_SUCCESS);
 end;
 
 constructor TApiServer.Create;
 begin
     inherited Create;
 
-    FClientQuery:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida);
-    FClientQuery.SendTimeout := FReadTimeOut;
-    FClientQuery.ReceiveTimeout := FReadTimeOut;
+    try
+        Persistencia:= TPersistencia.Create;
+    except
+        on E: Exception do
+            GerarLog('Criar armazenamento: ' + E.Message);
+    end;
 
     IniciarHealthCk(FUrl);
     InicializarFilaEPool;
@@ -269,14 +223,56 @@ end;
 
 destructor TApiServer.Destroy;
 begin
-    FinalizarHealthCk;
-    FinalizarFilaEPool;
+    try
+        Writeln('Finalizando Fila e Pool') ;
+        FinalizarFilaEPool;
+        Writeln('Fila e Pool Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Fila e Pool:' + E.Message) ;
+    end;
 
-    FServerHttp.Free;
-    FRest.Free;
-    FModel.Free;
-    FilaRequisicoes.Free;
-    FClientQuery.Free;
+    try
+        Writeln('Finalizando Healthck') ;
+        FinalizarHealthCk;
+        Writeln('Healthck Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Healthck:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando HttpServer') ;
+        FServerHttp.Free;
+        Writeln('HttpServer Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar HttpServer:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando Rest') ;
+        FRest.Free;
+        FModel.Free;
+        Writeln('Rest Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Rest:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando Persistencia') ;
+        Persistencia.Free;
+        Writeln('Persistencia Finalizado');
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Persistencia:' + E.Message) ;
+    end;
+
+    Writeln('Finalizando Memoria');
+    TPersistencia.LimparMemoriaCompartilhada;
+    Writeln('Memoria Finalizado');
+
     inherited Destroy;
 end;
 
