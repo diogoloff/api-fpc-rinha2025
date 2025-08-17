@@ -46,7 +46,7 @@ begin
   try
      if (FindCmdLineSwitch('DAEMON', ['-'], true)) then
      begin
-       TPosixDaemon.Setup(nil);
+       TPosixDaemon.Setup(@TratarSinais);
 
        RunServer;
 

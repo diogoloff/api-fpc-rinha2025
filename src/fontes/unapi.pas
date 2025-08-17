@@ -223,14 +223,56 @@ end;
 
 destructor TApiServer.Destroy;
 begin
-    FinalizarHealthCk;
-    FinalizarFilaEPool;
+    try
+        Writeln('Finalizando Fila e Pool') ;
+        FinalizarFilaEPool;
+        Writeln('Fila e Pool Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Fila e Pool:' + E.Message) ;
+    end;
 
-    FServerHttp.Free;
-    FRest.Free;
-    FModel.Free;
-    FilaRequisicoes.Free;
-    Persistencia.Free;
+    try
+        Writeln('Finalizando Healthck') ;
+        FinalizarHealthCk;
+        Writeln('Healthck Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Healthck:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando HttpServer') ;
+        FServerHttp.Free;
+        Writeln('HttpServer Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar HttpServer:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando Rest') ;
+        FRest.Free;
+        FModel.Free;
+        Writeln('Rest Finalizado') ;
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Rest:' + E.Message) ;
+    end;
+
+    try
+        Writeln('Finalizando Persistencia') ;
+        Persistencia.Free;
+        Writeln('Persistencia Finalizado');
+    except
+        on E: Exception do
+            Writeln('Erro ao Finalizar Persistencia:' + E.Message) ;
+    end;
+
+    Writeln('Finalizando Memoria');
+    TPersistencia.LimparMemoriaCompartilhada;
+    Writeln('Memoria Finalizado');
+
     inherited Destroy;
 end;
 
