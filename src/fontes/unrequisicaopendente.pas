@@ -10,6 +10,7 @@ uses
     DateUtils,
     unGenerica,
     unHealthHelper,
+    unPersistencia,
     mormot.core.base,
     mormot.core.variants,
     mormot.core.os,
@@ -35,11 +36,10 @@ type
         FAttempt: Integer;
 	      FRequestedAt: RawUtf8;
         FJsonObj: TDocVariantData;
-        FClientAdd: THttpClientSocket;
 
 	      procedure AjustarDataHora;
     public
-        constructor Create(const AId: RawUtf8; AAmount: Double; AAttempt: Integer; AClientAdd: THttpClientSocket);
+        constructor Create(const AId: RawUtf8; AAmount: Double; AAttempt: Integer);
         destructor Destroy; override;
 
 	      function Processar: Boolean;
@@ -61,12 +61,11 @@ implementation
 
 { TRequisicaoPendente }
 
-constructor TRequisicaoPendente.Create(const AId: RawUtf8; AAmount: Double; AAttempt: Integer; AClientAdd: THttpClientSocket);
+constructor TRequisicaoPendente.Create(const AId: RawUtf8; AAmount: Double; AAttempt: Integer);
 begin
     FCorrelationId:= AId;
     FAmount:= AAmount;
     FAttempt:= AAttempt;
-    FClientAdd:= AClientAdd;
 
     FJsonObj.InitFast;
     FJsonObj.AddValue('correlationId', FCorrelationId);
@@ -91,7 +90,6 @@ var
     lbDefault: Boolean;
     lsURL: RawUtf8;
     lClient: THttpClientSocket;
-    //lClientPer: THttpClientSocket;
     liStatusCode: Integer;
 begin
     try
@@ -104,12 +102,8 @@ begin
         else
             lsURL:= FUrlFall;
 
-        //lClientPer:= THttpClientSocket.Open(FUrlConsolida, FPortaConsolida, nlTcp, FConTimeOut);
         lClient:= THttpClientSocket.Open(lsURL, FPorta, nlTcp, FConTimeOut);
         try
-            //lClientPer.SendTimeout:= FReadTimeOut;
-		        //lClientPer.ReceiveTimeout:= FReadTimeOut;
-
             lClient.SendTimeout:= FReadTimeOut;
             lClient.ReceiveTimeout:= FReadTimeOut;
 
@@ -125,15 +119,7 @@ begin
                     else
                         FJsonObj.AddOrUpdateValue('service', 1);
 
-                    //FHttpLock.Enter;
-                    //try
-                        liStatusCode:= FClientAdd.Post('/add', FJsonObj.ToJson, 'application/json');
-                    //finally
-                    //    FHttpLock.Leave;
-                    //end;
-
-                    if (liStatusCode <> 200) then
-                        GerarLog('Problema: ' + IntToStr(liStatusCode), True);
+                    Persistencia.AdicionarRegistro(FromVariant(FJsonObj));
 
                     if (FAttempt <= FNumTentativasDefault) and (not ServiceHealthMonitor.GetDefaultAtivo) then
                         ServiceHealthMonitor.SetDefaultAtivo(True);
@@ -144,7 +130,6 @@ begin
             end;
         finally
             lClient.Free;
-            //lClientPer.Free;
         end;
     except
     on E: Exception do
